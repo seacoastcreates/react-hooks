@@ -25,7 +25,7 @@ const App = () => {
           <Toggle />
           <form onSubmit = { e => {
             e.preventDefault();
-            formSubmit();
+            formSubmit(name, setName);
           }}>
             <input 
               type="text" 
@@ -36,8 +36,6 @@ const App = () => {
           </form>
         
         
-        
-        
         </main>
         <footer></footer>
       </Wrapper>
@@ -45,8 +43,9 @@ const App = () => {
   );
 }
 
-const formSubmit = () => {
-  console.log('email sent!');
+const formSubmit = (value, setValue) => {
+  console.log('email sent to' + '' + value);
+  setValue('')
 }
 
 const Wrapper = styled.div `
