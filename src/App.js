@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components'
 import Toggle from './Toggle'
 
@@ -12,6 +12,10 @@ const App = () => {
   // hence: const [value, setValue] = useState(initialState);
 
   const [name, setName] = useState('');
+
+  useEffect(() => {
+    document.title = name;
+  });
 
   return (
     <div>
