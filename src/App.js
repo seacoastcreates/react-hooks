@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components'
 import Toggle from './Toggle'
+import { useTitleInput } from './hooks/useTitleInput';
 
 const App = () => {
 
@@ -11,11 +12,8 @@ const App = () => {
   // useState() accepts initialState as param: useState(initialState);
   // hence: const [value, setValue] = useState(initialState);
 
-  const [name, setName] = useState('');
-
-  useEffect(() => {
-    document.title = name;
-  });
+  //useEffect
+  const [name, setName] = useTitleInput('');
 
   return (
     <div>
@@ -29,7 +27,6 @@ const App = () => {
           <Toggle />
           <form onSubmit = { e => {
             e.preventDefault();
-            formSubmit(name, setName);
           }}>
             <input 
               type="text" 
@@ -47,10 +44,6 @@ const App = () => {
   );
 }
 
-const formSubmit = (value, setValue) => {
-  console.log('email sent to' + '' + value);
-  setValue('')
-}
 
 const Wrapper = styled.div `
   padding: 0 20px;
