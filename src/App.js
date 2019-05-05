@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components'
 import Toggle from './Toggle'
 import { useTitleInput } from './hooks/useTitleInput';
@@ -14,6 +14,8 @@ const App = () => {
 
   //useEffect
   const [name, setName] = useTitleInput('');
+  //useRef
+  const ref = useRef();
 
   return (
     <div>
@@ -35,7 +37,10 @@ const App = () => {
             />
             <button>Submit</button>
           </form>
-        
+
+          <aside class="aside" ref={ref}>
+            <button onClick={() => ref.current.classList.add('new-class')}>add class</button>
+          </aside>
         
         </main>
         <footer></footer>
